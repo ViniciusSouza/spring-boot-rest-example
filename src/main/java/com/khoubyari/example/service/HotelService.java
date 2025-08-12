@@ -23,6 +23,9 @@ public class HotelService {
     private HotelRepository hotelRepository;
 
     @Autowired
+    private CompassDataClient compassDataClient;
+
+    @Autowired
     CounterService counterService;
 
     @Autowired
@@ -40,7 +43,7 @@ public class HotelService {
     }
 
     public void updateHotel(Hotel hotel) {
-        hotelRepository.save(hotel);
+        compassDataClient.updateHotel(hotel);
     }
 
     public void deleteHotel(Long id) {
